@@ -55,7 +55,9 @@ export default function Home() {
       default:
         return (
           <>
-            <Hero />
+            <Hero
+              onNavigate={(section) => setActiveSection(section)}
+            />
             <TechStack />
           </>
         );
