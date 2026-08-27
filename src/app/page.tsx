@@ -24,57 +24,44 @@ export type Section =
   | "contact";
 
 export default function Home() {
-  const [activeSection, setActiveSection] = useState<Section>("home");
+  const [activeSection, setActiveSection] =
+    useState<Section>("home");
 
-  const renderSection = () => {
-    switch (activeSection) {
-      case "about":
-        return <About />;
-
-      case "education":
-        return <Education />;
-
-      case "experience":
-        return <Experience />;
-
-      case "projects":
-        return <Projects />;
-
-      case "skills":
-        return <Skills />;
-
-      case "contact":
-        return (
-          <>
-            <GetInTouch />
-            <Contact />
-          </>
-        );
-
-      case "home":
-      default:
-        return (
-          <>
-            <Hero
-              onNavigate={(section) => setActiveSection(section)}
-            />
-            <TechStack />
-          </>
-        );
-    }
+  const handleNavigate = (section: Section) => {
+    setActiveSection(section);
   };
 
   return (
     <div className="h-screen w-full overflow-hidden flex flex-col">
       <Navbar
         activeSection={activeSection}
-        onNavigate={(section) => setActiveSection(section)}
+        onNavigate={handleNavigate}
       />
 
-      <main className="portfolio-section-container flex-1 min-h-0">
-        <div className="portfolio-section-content">
-          {renderSection()}
-        </div>
+      <main className="portfolio-section-container flex-1 min-h-0 overflow-y-auto">
+        {activeSection === "home" && (
+          <>
+            <Hero onNavigate={handleNavigate} />
+            <TechStack />
+          </>
+        )}
+
+        {activeSection === "about" && <About />}
+
+        {activeSection === "education" && <Education />}
+
+        {activeSection === "experience" && <Experience />}
+
+        {activeSection === "projects" && <Projects />}
+
+        {activeSection === "skills" && <Skills />}
+
+        {activeSection === "contact" && (
+          <>
+            <GetInTouch />
+            <Contact />
+          </>
+        )}
       </main>
 
       <Footer />
