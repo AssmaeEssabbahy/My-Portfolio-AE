@@ -32,5 +32,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-/public/Rapport_PFA_Assmae_Essabbahy.pdf
-/public/Rapport_PFE_Assmae_Essabbahy.pdf
