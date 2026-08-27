@@ -32,36 +32,38 @@ export default function Home() {
   };
 
   return (
-    <div className="h-screen w-full overflow-hidden flex flex-col">
+    <div className="h-screen w-full flex flex-col overflow-hidden">
       <Navbar
         activeSection={activeSection}
         onNavigate={handleNavigate}
       />
 
-      <main className="portfolio-section-container flex-1 min-h-0 overflow-y-auto">
-        {activeSection === "home" && (
-          <>
-            <Hero onNavigate={handleNavigate} />
-            <TechStack />
-          </>
-        )}
+      <main className="flex-1 min-h-0 overflow-hidden">
+        <div className="h-full w-full overflow-y-auto overflow-x-hidden">
+          {activeSection === "home" && (
+            <>
+              <Hero onNavigate={handleNavigate} />
+              <TechStack />
+            </>
+          )}
 
-        {activeSection === "about" && <About />}
+          {activeSection === "about" && <About />}
 
-        {activeSection === "education" && <Education />}
+          {activeSection === "education" && <Education />}
 
-        {activeSection === "experience" && <Experience />}
+          {activeSection === "experience" && <Experience />}
 
-        {activeSection === "projects" && <Projects />}
+          {activeSection === "projects" && <Projects />}
 
-        {activeSection === "skills" && <Skills />}
+          {activeSection === "skills" && <Skills />}
 
-        {activeSection === "contact" && (
-          <>
-            <GetInTouch />
-            <Contact />
-          </>
-        )}
+          {activeSection === "contact" && (
+            <>
+              <GetInTouch />
+              <Contact />
+            </>
+          )}
+        </div>
       </main>
 
       <Footer />

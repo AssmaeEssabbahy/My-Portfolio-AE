@@ -61,17 +61,19 @@ export default function Hero({ onNavigate }: HeroProps) {
 
   useEffect(() => {
     const timer = setTimeout(() => setHeroVisible(true), 100);
+
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => setStatsStarted(true), 800);
+
     return () => clearTimeout(timer);
   }, []);
 
-  /* =========================================================
+  /* =========================
      DRIVING TYPEWRITER
-     ========================================================= */
+     ========================= */
 
   useEffect(() => {
     const fullText = specializations[currentSpec];
@@ -86,9 +88,11 @@ export default function Hero({ onNavigate }: HeroProps) {
 
     if (isDeleting && displayText === "") {
       setIsDeleting(false);
+
       setCurrentSpec(
         (prevSpec) => (prevSpec + 1) % specializations.length
       );
+
       return;
     }
 
@@ -135,13 +139,21 @@ export default function Hero({ onNavigate }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="
+        relative
+        min-h-screen
+        flex
+        items-center
+        justify-center
+        overflow-hidden
+      "
       style={{
         background:
           "linear-gradient(135deg, var(--navy) 0%, #0c1929 50%, #0a1628 100%)",
         padding: "100px 24px 80px",
       }}
     >
+      {/* BACKGROUND */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute rounded-full animate-float"
@@ -180,6 +192,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         />
       </div>
 
+      {/* CONTENT */}
       <div className="max-w-[1100px] w-full flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-16 relative z-[1]">
         <div
           className={`flex-1 text-center md:text-left transition-all duration-700 ease-out ${
@@ -197,6 +210,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             Industrial &amp; Logistics Engineer
           </p>
 
+          {/* DRIVING */}
           <div className="min-h-[2.5rem] mb-2">
             <p className="text-[var(--gray-300)] text-[clamp(1rem,1.8vw,1.2rem)] font-normal leading-relaxed">
               Driving{" "}
@@ -235,9 +249,11 @@ export default function Hero({ onNavigate }: HeroProps) {
             .
           </p>
 
+          {/* STATUS */}
           <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--teal-light)] opacity-75" />
+
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[var(--teal-light)]" />
             </span>
 
@@ -254,19 +270,40 @@ export default function Hero({ onNavigate }: HeroProps) {
             </span>
           </div>
 
+          {/* LOCATION */}
           <div className="flex items-center justify-center md:justify-start gap-1.5 text-[var(--gray-400)] text-sm mb-7">
             <MapPin
               size={14}
               className="text-[var(--teal)] shrink-0"
             />
+
             <span>Rabat, Morocco</span>
           </div>
 
+          {/* BUTTONS */}
           <div className="flex flex-wrap gap-3 justify-center md:justify-start mb-7">
+            {/* VIEW MY WORK */}
             <button
               type="button"
               onClick={() => onNavigate("experience")}
-              className="inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-[10px] text-[0.9rem] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 cursor-pointer border-none font-[inherit]"
+              className="
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                h-[44px]
+                px-6
+                rounded-[10px]
+                text-[0.9rem]
+                font-semibold
+                text-white
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                cursor-pointer
+                border-none
+                font-[inherit]
+              "
               style={{
                 background: "var(--teal)",
                 boxShadow:
@@ -284,31 +321,90 @@ export default function Hero({ onNavigate }: HeroProps) {
               View My Work
             </button>
 
+            {/* LET'S TALK */}
             <button
               type="button"
               onClick={() => onNavigate("contact")}
-              className="inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-[10px] text-[0.9rem] font-semibold text-white/80 border-2 border-white/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--teal-light)] hover:text-[var(--teal-light)] hover:bg-[var(--teal)]/5 cursor-pointer bg-transparent font-[inherit]"
+              className="
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                h-[44px]
+                px-6
+                rounded-[10px]
+                text-[0.9rem]
+                font-semibold
+                text-white/80
+                border-2
+                border-white/20
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:border-[var(--teal-light)]
+                hover:text-[var(--teal-light)]
+                hover:bg-[var(--teal)]/5
+                cursor-pointer
+                bg-transparent
+                font-[inherit]
+              "
             >
               Let&apos;s Talk
             </button>
 
+            {/* DOWNLOAD CV */}
             <a
               href="/CV_Assmae.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-[44px] px-6 rounded-[10px] text-[0.9rem] font-semibold text-white/80 border-2 border-white/20 transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--teal-light)] hover:text-[var(--teal-light)] hover:bg-[var(--teal)]/5"
+              className="
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                h-[44px]
+                px-6
+                rounded-[10px]
+                text-[0.9rem]
+                font-semibold
+                text-white/80
+                border-2
+                border-white/20
+                transition-all
+                duration-300
+                hover:-translate-y-0.5
+                hover:border-[var(--teal-light)]
+                hover:text-[var(--teal-light)]
+                hover:bg-[var(--teal)]/5
+              "
             >
               <FileText size={16} />
               Download CV
             </a>
           </div>
 
+          {/* SOCIAL */}
           <div className="flex items-center gap-3 justify-center md:justify-start relative">
             <a
               href="https://www.linkedin.com/in/assmae-essabbahy-bb686829b"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-10 h-10 text-[var(--gray-400)] border border-white/15 rounded-full transition-all duration-300 hover:text-[var(--teal-light)] hover:border-[var(--teal-light)] hover:-translate-y-1"
+              className="
+                flex
+                items-center
+                justify-center
+                w-10
+                h-10
+                text-[var(--gray-400)]
+                border
+                border-white/15
+                rounded-full
+                transition-all
+                duration-300
+                hover:text-[var(--teal-light)]
+                hover:border-[var(--teal-light)]
+                hover:-translate-y-1
+              "
               aria-label="LinkedIn"
             >
               <Linkedin
@@ -321,7 +417,22 @@ export default function Hero({ onNavigate }: HeroProps) {
               href="https://github.com/AssmaeEssabbahy"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center w-10 h-10 text-[var(--gray-400)] border border-white/15 rounded-full transition-all duration-300 hover:text-[var(--teal-light)] hover:border-[var(--teal-light)] hover:-translate-y-1"
+              className="
+                flex
+                items-center
+                justify-center
+                w-10
+                h-10
+                text-[var(--gray-400)]
+                border
+                border-white/15
+                rounded-full
+                transition-all
+                duration-300
+                hover:text-[var(--teal-light)]
+                hover:border-[var(--teal-light)]
+                hover:-translate-y-1
+              "
               aria-label="GitHub"
             >
               <Github size={16} />
@@ -330,7 +441,24 @@ export default function Hero({ onNavigate }: HeroProps) {
             <button
               type="button"
               onClick={handleEmailClick}
-              className="flex items-center justify-center w-10 h-10 text-[var(--gray-400)] border border-white/15 rounded-full transition-all duration-300 hover:text-[var(--teal-light)] hover:border-[var(--teal-light)] hover:-translate-y-1 cursor-pointer bg-transparent"
+              className="
+                flex
+                items-center
+                justify-center
+                w-10
+                h-10
+                text-[var(--gray-400)]
+                border
+                border-white/15
+                rounded-full
+                transition-all
+                duration-300
+                hover:text-[var(--teal-light)]
+                hover:border-[var(--teal-light)]
+                hover:-translate-y-1
+                cursor-pointer
+                bg-transparent
+              "
               aria-label="Email"
             >
               <Mail size={16} />
@@ -351,6 +479,7 @@ export default function Hero({ onNavigate }: HeroProps) {
           </div>
         </div>
 
+        {/* IMAGE + STATS */}
         <div
           className={`flex-shrink-0 flex flex-col items-center transition-all duration-700 delay-200 ease-out ${
             heroVisible
@@ -361,7 +490,9 @@ export default function Hero({ onNavigate }: HeroProps) {
           <div className="relative">
             <div
               className="absolute -inset-4 rounded-full opacity-20 blur-2xl"
-              style={{ background: "var(--teal)" }}
+              style={{
+                background: "var(--teal)",
+              }}
             />
 
             <Image
@@ -369,7 +500,23 @@ export default function Hero({ onNavigate }: HeroProps) {
               alt="Assmae Essabbahy"
               width={300}
               height={300}
-              className="relative w-[220px] h-[220px] sm:w-[260px] sm:h-[260px] lg:w-[300px] lg:h-[300px] rounded-full object-cover border-4 border-[var(--teal)]/20 shadow-2xl transition-transform duration-500 hover:scale-[1.03]"
+              className="
+                relative
+                w-[220px]
+                h-[220px]
+                sm:w-[260px]
+                sm:h-[260px]
+                lg:w-[300px]
+                lg:h-[300px]
+                rounded-full
+                object-cover
+                border-4
+                border-[var(--teal)]/20
+                shadow-2xl
+                transition-transform
+                duration-500
+                hover:scale-[1.03]
+              "
               priority
               unoptimized
             />
@@ -388,6 +535,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         </div>
       </div>
 
+      {/* ARROW */}
       <div className="absolute bottom-[18px] left-1/2 -translate-x-1/2 text-[var(--gray-500)] animate-bounce-arrow z-10">
         <ArrowDown size={18} />
       </div>
