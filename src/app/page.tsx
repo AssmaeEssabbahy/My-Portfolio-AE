@@ -24,49 +24,106 @@ export type Section =
   | "contact";
 
 export default function Home() {
-  const [activeSection, setActiveSection] =
-    useState<Section>("home");
+  const [activeSection, setActiveSection] = useState<Section>("home");
 
   const handleNavigate = (section: Section) => {
     setActiveSection(section);
   };
 
   return (
-    <div className="h-screen w-full flex flex-col overflow-hidden">
+    <div className="h-screen w-full overflow-hidden flex flex-col">
       <Navbar
         activeSection={activeSection}
         onNavigate={handleNavigate}
       />
 
-      <main className="flex-1 min-h-0 overflow-hidden">
-        <div className="h-full w-full overflow-y-auto overflow-x-hidden">
-          {activeSection === "home" && (
-            <>
-              <Hero onNavigate={handleNavigate} />
-              <TechStack />
-            </>
-          )}
+      <main className="flex-1 min-h-0 overflow-hidden relative">
+        <section
+          id="home"
+          className={`h-full w-full overflow-y-auto flex flex-col justify-between ${
+            activeSection === "home" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="my-auto">
+            <Hero onNavigate={handleNavigate} />
+            <TechStack />
+          </div>
+          <Footer />
+        </section>
 
-          {activeSection === "about" && <About />}
+        <section
+          id="about"
+          className={`h-full w-full overflow-y-auto flex flex-col justify-between ${
+            activeSection === "about" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="my-auto">
+            <About />
+          </div>
+          <Footer />
+        </section>
 
-          {activeSection === "education" && <Education />}
+        <section
+          id="education"
+          className={`h-full w-full overflow-y-auto flex flex-col justify-between ${
+            activeSection === "education" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="my-auto">
+            <Education />
+          </div>
+          <Footer />
+        </section>
 
-          {activeSection === "experience" && <Experience />}
+        <section
+          id="experience"
+          className={`h-full w-full overflow-y-auto flex flex-col justify-between ${
+            activeSection === "experience" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="my-auto">
+            <Experience />
+          </div>
+          <Footer />
+        </section>
 
-          {activeSection === "projects" && <Projects />}
+        <section
+          id="projects"
+          className={`h-full w-full overflow-y-auto flex flex-col justify-between ${
+            activeSection === "projects" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="my-auto">
+            <Projects />
+          </div>
+          <Footer />
+        </section>
 
-          {activeSection === "skills" && <Skills />}
+        <section
+          id="skills"
+          className={`h-full w-full overflow-y-auto flex flex-col justify-between ${
+            activeSection === "skills" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="my-auto">
+            <Skills />
+          </div>
+          <Footer />
+        </section>
 
-          {activeSection === "contact" && (
-            <>
-              <GetInTouch />
-              <Contact />
-            </>
-          )}
-        </div>
+        <section
+          id="contact"
+          className={`h-full w-full overflow-y-auto flex flex-col justify-between ${
+            activeSection === "contact" ? "flex" : "hidden"
+          }`}
+        >
+          <div className="my-auto">
+            <GetInTouch />
+            <Contact />
+          </div>
+          <Footer />
+        </section>
       </main>
-
-      <Footer />
     </div>
   );
 }

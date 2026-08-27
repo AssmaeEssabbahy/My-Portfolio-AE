@@ -1242,3 +1242,60 @@ button {
     transition-duration: 0.01ms !important;
   }
 }
+/* =========================================================
+   CONTACT + FOOTER
+   ========================================================= */
+
+.portfolio-scroll-container {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+.portfolio-page-section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contact must be allowed to contain the footer */
+#contact.portfolio-page-section {
+  min-height: 100vh;
+  height: auto;
+  overflow: visible;
+}
+
+/* Footer stays at the bottom of Contact */
+#contact.portfolio-page-section > footer {
+  position: relative;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .portfolio-page-section,
+  #contact.portfolio-page-section {
+    min-height: 100svh;
+    height: auto;
+    overflow: visible;
+  }
+
+  #contact.portfolio-page-section {
+    padding-bottom: 0;
+  }
+
+  #contact.portfolio-page-section > footer {
+    margin-top: 24px;
+  }
+}

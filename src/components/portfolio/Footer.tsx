@@ -5,7 +5,7 @@ import { Linkedin, Github, Mail, Heart } from "lucide-react";
 export default function Footer() {
   return (
     <footer
-      className="py-6 mt-auto border-t"
+      className="w-full py-6 mt-auto border-t shrink-0"
       style={{
         background: "var(--t-nav-bg)",
         borderTopColor: "var(--t-nav-border)",
@@ -19,12 +19,12 @@ export default function Footer() {
           © {new Date().getFullYear()} Assmae Essabbahy. Made with{" "}
           <Heart
             size={12}
-            className="text-red-400 fill-red-400 inline"
+            className="text-red-400 fill-red-400 inline shrink-0"
           />{" "}
           All rights reserved.
         </p>
 
-        <div className="flex gap-3">
+        <div className="flex items-center gap-3 shrink-0">
           <a
             href="mailto:assmae.essabbahy2003@gmail.com"
             aria-label="Email"
