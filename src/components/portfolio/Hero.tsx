@@ -14,7 +14,7 @@ import {
   BookOpen,
 } from "lucide-react";
 import { useCountUp } from "@/hooks/useScrollReveal";
-import { useEffect, useState, useCallback, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const stats = [
   { icon: Award, value: 2026, suffix: "", label: "Graduate" },
@@ -69,41 +69,41 @@ export default function Hero({ onNavigate }: HeroProps) {
     return () => clearTimeout(timer);
   }, []);
 
-  const tick = useCallback(() => {
-    const fullText = specializations[currentSpec];
-
-    if (!isDeleting) {
-      setDisplayText((prev) => {
-        const nextText = fullText.substring(0, prev.length + 1);
-
-        if (nextText.length === fullText.length) {
-          setTimeout(() => setIsDeleting(true), 2200);
-        }
-
-        return nextText;
-      });
-    } else {
-      setDisplayText((prev) => {
-        const nextText = fullText.substring(0, prev.length - 1);
-
-        if (nextText.length === 0) {
-          setIsDeleting(false);
-          setCurrentSpec(
-            (prevSpec) => (prevSpec + 1) % specializations.length
-          );
-        }
-
-        return nextText;
-      });
-    }
-  }, [currentSpec, isDeleting]);
+  /* =========================================================
+     DRIVING TYPEWRITER
+     ========================================================= */
 
   useEffect(() => {
+    const fullText = specializations[currentSpec];
+
+    if (!isDeleting && displayText === fullText) {
+      const pauseTimer = setTimeout(() => {
+        setIsDeleting(true);
+      }, 2200);
+
+      return () => clearTimeout(pauseTimer);
+    }
+
+    if (isDeleting && displayText === "") {
+      setIsDeleting(false);
+      setCurrentSpec(
+        (prevSpec) => (prevSpec + 1) % specializations.length
+      );
+      return;
+    }
+
     const speed = isDeleting ? 35 : 65;
-    const timer = setTimeout(tick, speed);
+
+    const timer = setTimeout(() => {
+      setDisplayText(
+        isDeleting
+          ? fullText.substring(0, displayText.length - 1)
+          : fullText.substring(0, displayText.length + 1)
+      );
+    }, speed);
 
     return () => clearTimeout(timer);
-  }, [tick, isDeleting]);
+  }, [displayText, isDeleting, currentSpec]);
 
   useEffect(() => {
     if (specRef.current) {
@@ -245,7 +245,9 @@ export default function Hero({ onNavigate }: HeroProps) {
               Actively seeking a professional opportunity
             </span>
 
-            <span className="text-[var(--gray-500)] text-sm">·</span>
+            <span className="text-[var(--gray-500)] text-sm">
+              ·
+            </span>
 
             <span className="text-[var(--gray-400)] text-sm font-medium">
               Available immediately
