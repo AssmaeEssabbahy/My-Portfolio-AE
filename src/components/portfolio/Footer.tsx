@@ -26,7 +26,7 @@ export default function Footer() {
 
         <div className="flex gap-3">
           <a
-            href="mailto:assmae.essabbahy@email.com"
+            href="mailto:assmae.essabbahy2003@gmail.com"
             aria-label="Email"
             className="transition-colors duration-200 hover:text-[var(--teal-light)]"
             style={{ color: "var(--t-text-on-dark-muted)" }}
@@ -35,7 +35,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://linkedin.com/in/assmae-essabbahy"
+            href="https://linkedin.com/in/assmae-essabbahy-bb686829b"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -46,7 +46,7 @@ export default function Footer() {
           </a>
 
           <a
-            href="https://github.com/assmae-essabbahy"
+            href="https://github.com/AssmaeEssabbahy"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
