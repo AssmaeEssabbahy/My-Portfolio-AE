@@ -63,7 +63,7 @@ export default function GetInTouch() {
           </p>
 
           <a
-            href="#contact"
+  href="#contact-form"
             className="group inline-flex items-center gap-2 px-7 py-3 rounded-[10px] text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 cursor-pointer font-[inherit]"
             style={{
               background: "var(--teal)",

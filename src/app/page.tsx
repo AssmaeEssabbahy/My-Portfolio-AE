@@ -117,10 +117,12 @@ export default function Home() {
             activeSection === "contact" ? "flex" : "hidden"
           }`}
         >
-          <div className="my-auto">
-  <GetInTouch /> 
-  <Contact /> 
-</div> 
+  <div className="my-auto">
+  <GetInTouch />
+  <div id="contact-form">
+    <Contact />
+  </div>
+</div>
 <Footer /> 
         </section>
       </main>
