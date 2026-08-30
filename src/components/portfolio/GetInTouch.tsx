@@ -62,11 +62,16 @@ export default function GetInTouch() {
           </p>
 
           <button
-            onClick={() =>
-              document
-                .getElementById("contact")
-                ?.scrollIntoView({ behavior: "smooth" })
-            }
+           onClick={() => {
+  const contactSection = document.getElementById("contact");
+
+  if (contactSection) {
+    contactSection.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+}}
             className="group inline-flex items-center gap-2 px-7 py-3 rounded-[10px] text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 cursor-pointer border-none font-[inherit]"
             style={{
               background: "var(--teal)",
