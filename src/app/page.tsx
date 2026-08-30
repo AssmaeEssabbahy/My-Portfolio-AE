@@ -118,10 +118,10 @@ export default function Home() {
           }`}
         >
           <div className="my-auto">
-            <GetInTouch />
-            <Contact />
-          </div>
-          <Footer />
+  <GetInTouch /> 
+  <Contact /> 
+</div> 
+<Footer /> 
         </section>
       </main>
     </div>
