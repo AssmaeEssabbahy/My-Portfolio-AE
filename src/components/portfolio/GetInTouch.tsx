@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useScrollReveal } from "@/hooks/useScrollReveal";
@@ -61,18 +62,9 @@ export default function GetInTouch() {
             Industrial &amp; Logistics Engineer.
           </p>
 
-          <button
-           onClick={() => {
-  const contactSection = document.getElementById("contact");
-
-  if (contactSection) {
-    contactSection.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  }
-}}
-            className="group inline-flex items-center gap-2 px-7 py-3 rounded-[10px] text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 cursor-pointer border-none font-[inherit]"
+          <a
+            href="#contact"
+            className="group inline-flex items-center gap-2 px-7 py-3 rounded-[10px] text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 cursor-pointer font-[inherit]"
             style={{
               background: "var(--teal)",
               boxShadow: "0 4px 14px rgba(13, 148, 136, 0.35)",
@@ -93,10 +85,11 @@ export default function GetInTouch() {
               size={16}
               className="transition-transform duration-300 group-hover:translate-x-1"
             />
-          </button>
+          </a>
 
         </div>
       </div>
     </section>
   );
 }
+
