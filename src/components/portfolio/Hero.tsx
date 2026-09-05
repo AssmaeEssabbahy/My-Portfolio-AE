@@ -354,7 +354,7 @@ export default function Hero({ onNavigate }: HeroProps) {
 
             {/* DOWNLOAD CV */}
             <a
-              href="/CV_ASSMAE ESSABBAHY_Indus & Logis Engineer.pdf"
+              href="/CV_ASSMAE ESSABBAHY_ING GIL_FR&ANG (2).pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="
